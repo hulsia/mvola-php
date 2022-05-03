@@ -1,0 +1,12 @@
+{
+  "name": "hulsia/mvola-php",
+  "description": "PHP SDK for MVola",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Nekena Ratafita Haritsimba",
+      "email": "ratafita.nekena@gmail.com",
+      "homepage": "https://github.com/nekena-tanaloua"
+    }
+  ]
+}
