@@ -1,6 +1,6 @@
 {
   "name": "hulsia/mvola-php",
-  "description": "PHP SDK for MVola",
+  "description": "PHP SDK for MVola API",
   "minimum-stability": "dev",
   "authors": [
     {
@@ -8,5 +8,14 @@
       "email": "ratafita.nekena@gmail.com",
       "homepage": "https://github.com/nekena-tanaloua"
     }
-  ]
+  ],
+  "autoload": {
+    "psr-4": {
+      "Hulsia\\MVola\\": "lib"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "7.4.x-dev",
+    "nesbot/carbon": "2.x-dev"
+  }
 }
