@@ -55,6 +55,14 @@ class MVola
     }
 
     /**
+     * @return array MVola API config
+     */
+    public function getConfig(): array
+    {
+        return $this->config;
+    }
+
+    /**
      * @return string Base URL
      */
     private function getBaseUrl(): string
@@ -67,9 +75,9 @@ class MVola
     }
 
     /**
-     * @return array Access token
+     * @param string|null $scope
+     * @return array|null Access token
      * @throws GuzzleException
-     * @throws InvalidArgumentException
      */
     public function fetchAccessToken(?string $scope = null): ?array
     {
@@ -100,15 +108,14 @@ class MVola
     }
 
     /**
-     * @return MerchantPay MerchantPay API
+     * @return array Access token
+     * @throws GuzzleException
      */
-    public function merchantPay(): MerchantPay
-    {
-        return new MerchantPay($this);
-    }
-
     public function getAccessToken(): array
     {
+        if(!$this->accessToken) {
+            $this->fetchAccessToken();
+        }
         return $this->accessToken;
     }
 }

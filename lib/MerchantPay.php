@@ -18,6 +18,9 @@ class MerchantPay
 
     private MVola $mvola;
 
+    /**
+     * @throws GuzzleException
+     */
     public function __construct(MVola $mvola, array $options = [])
     {
 
