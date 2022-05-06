@@ -22,7 +22,7 @@ class MerchantPay
     {
 
         $this->mvola = $mvola;
-        $correlationId = $options['correlationId'] ?? Uuid::uuid4();
+        $correlationId = $options['correlationId'] ?? Uuid::uuid4()->toString();
 
         $this->headers = array_merge([
             'Version' => self::VERSION,
