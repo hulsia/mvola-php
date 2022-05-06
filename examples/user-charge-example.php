@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * @see https://www.mvola.mg/devportal/home to get your credentials
+ */
 $mvola = new \Hulsia\MVola\MVola([
-    'consumerKey' => null,
-    'consumerSecret' => null,
+    'consumerKey' => 'YOUR_CONSUMER_KEY',
+    'consumerSecret' => 'YOUR_CONSUMER_SECRET',
     'live' => true, // by default, the library will use the sandbox environment
 ]);
 
