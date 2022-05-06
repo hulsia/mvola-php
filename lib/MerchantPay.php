@@ -5,6 +5,7 @@ namespace Hulsia\MVola;
 use DateTime;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use Ramsey\Uuid\Uuid;
 
 class MerchantPay
 {
@@ -21,10 +22,11 @@ class MerchantPay
     {
 
         $this->mvola = $mvola;
+        $correlationId = $options['correlationId'] ?? Uuid::uuid4();
 
         $this->headers = array_merge([
             'Version' => self::VERSION,
-            'X-CorrelationID' => uniqid(),
+            'X-CorrelationID' => $correlationId,
             'UserLanguage' => 'MG',
             'UserAccountIdentifier' => null,
             'partnerName' => null,

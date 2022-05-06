@@ -16,6 +16,7 @@
   },
   "require": {
     "guzzlehttp/guzzle": "7.4.x-dev",
-    "nesbot/carbon": "2.x-dev"
+    "nesbot/carbon": "2.x-dev",
+    "ramsey/uuid": "^4.2"
   }
 }
