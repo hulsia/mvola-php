@@ -41,6 +41,10 @@ class MVola
         if (!is_array($config)) {
             throw new InvalidArgumentException('Config must be an array');
         }
+        
+        if (!$this->config['consumerKey'] || !$this->config['consumerSecret']) {
+            throw new InvalidArgumentException('Consumer key and secret are required');
+        }
 
         $this->config = array_merge([
             'consumerKey' => null,
@@ -81,9 +85,6 @@ class MVola
      */
     public function fetchAccessToken(?string $scope = null): ?array
     {
-        if (!$this->config['consumerKey'] || !$this->config['consumerSecret']) {
-            throw new InvalidArgumentException('Consumer key and secret are required');
-        }
 
         $req = $this->client->post('token', [
             'form_params' => [
