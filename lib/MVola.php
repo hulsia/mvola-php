@@ -41,8 +41,8 @@ class MVola
         if (!is_array($config)) {
             throw new InvalidArgumentException('Config must be an array');
         }
-        
-        if (!$this->config['consumerKey'] || !$this->config['consumerSecret']) {
+
+        if (!isset($config['consumerKey']) || !isset($config['consumerSecret'])) {
             throw new InvalidArgumentException('Consumer key and secret are required');
         }
 
