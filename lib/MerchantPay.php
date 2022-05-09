@@ -4,7 +4,6 @@ namespace Hulsia\MVola;
 
 use DateTime;
 use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\ResponseInterface;
 use Ramsey\Uuid\Uuid;
 
 class MerchantPay
@@ -49,10 +48,10 @@ class MerchantPay
 
     /**
      * @param array $transationDetails
-     * @return ResponseInterface
+     * @return array
      * @throws GuzzleException
      */
-    public function initTransaction(array $transationDetails = []): ResponseInterface
+    public function initTransaction(array $transationDetails = []): array
     {
         $requestDate = (new DateTime('UTC'))->format('Y-m-d\TH:i:s.000\Z');
         $transationDetails = [
@@ -90,10 +89,12 @@ class MerchantPay
             ],
         ];
 
-        return $this->mvola->getClient()->post($this->getEndpoint(), [
-            'headers' => $this->headers,
-            'json' => $transationDetails,
-        ]);
+        return json_decode($this->mvola->getClient()
+            ->post(
+                $this->getEndpoint(), [
+                'headers' => $this->headers,
+                'json' => $transationDetails,
+            ])->getBody()->getContents(), true);
     }
 
 }
