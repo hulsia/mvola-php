@@ -4,6 +4,12 @@
 
 This library provides developers with a simple set of bindings to the MVola payment API.
 
+## Install 
+> WIP
+
+## Usage 
+> WIP
+
 ## Contributing
 
 Thank you for considering contributing to this library! You can read the contribution guide [here](CONTRIBUTING.md).
